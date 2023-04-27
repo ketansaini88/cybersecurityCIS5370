@@ -1,30 +1,23 @@
 <?php
 
 include_once("./includes/header.php");
+include_once("./includes/db.php");
 //-------------------------------------------------------------------------------------------
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "cyberSecurity";
 
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	if ($conn->connect_error) {
-	  die("Connection failed: " . $conn->connect_error);
-	}
-	
 	$sql = "SELECT *  FROM student_info";
 	$result = $conn->query($sql);
-	
+
 	while ($row = $result->fetch_assoc()){
 	  $data_array[] = $row;
 	}
 	
+	//THE FOLLOWING CODE IS USED TO ENCRYPT THE PARAMETERS TO BE SENT IN THE URL
 	$ciphering = "AES-128-CTR";
 	$iv_length = openssl_cipher_iv_length($ciphering);
 	$options = 0;
 	$iv = '1234567891011121';
 	$key = "ketan0911";
+
 ?>
 	
 <!DOCTYPE html>

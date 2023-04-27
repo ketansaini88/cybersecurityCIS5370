@@ -1,20 +1,10 @@
 <?php
 
 include_once("./includes/header.php");
+include_once("./includes/db.php");
 //-------------------------------------------------------------------------------------------
-
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "cyberSecurity";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	if ($conn->connect_error) {
-	  die("Connection failed: " . $conn->connect_error);
-	}
 	
-	$sql = "SELECT *  FROM student_info where id = ".$_GET['Id'];
+	$sql = "SELECT * FROM student_info where id = ".$_GET['Id'];
 	$result = $conn->query($sql);
 	
 	while ($row = $result->fetch_assoc()){

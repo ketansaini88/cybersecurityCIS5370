@@ -1,9 +1,9 @@
 <?php
 
 include_once("./includes/header.php");
+include_once("./includes/db.php");
 //-------------------------------------------------------------------------------------------
 
-	
 ?>
 	
 <!DOCTYPE html>
@@ -21,6 +21,7 @@ include_once("./includes/header.php");
 	?>
 	<h2>Test Case 4</h2>
 	
+	<!-- THE POST IN THE METHOD ATTRIBUTE FOR THE FORM IS THE SECURE METHOD TO SUBMIT DATA IN THE SERVER --> 
 	<form name="search" id="search" method="POST" action="./search_result.php" target="_blank">		
 		<table>
 			<tr>

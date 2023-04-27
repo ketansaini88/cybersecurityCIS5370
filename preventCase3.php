@@ -1,22 +1,10 @@
 <?php
 
 include_once("./includes/header.php");
+include_once("./includes/db.php");
 //-------------------------------------------------------------------------------------------
-
 	
-
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "cyberSecurity";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	if ($conn->connect_error) {
-	  die("Connection failed: " . $conn->connect_error);
-	}
-	
-	//Prevents SQL Injection
+	//THE FOLLOWING CODE PREVENTS THE SQL INJECTION BY USING A SIMPLE PRACTICE OF ESCAPING STRINGS TO BE USED AS QUERY VARIABLES
 	$role = $conn->real_escape_string($_GET['role']);
 	$sql="SELECT * FROM student_info where role = '".$role."'";
 	

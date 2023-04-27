@@ -1,16 +1,8 @@
 <?php
 
 include_once("./includes/header.php");
-//-------------------------------------------------------------------------------------------
-
-	
-
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "cyberSecurity";
-	
-	
+include_once("./includes/db.php");
+//-------------------------------------------------------------------------------------------	
 	$ciphering = "AES-128-CTR";
 	$iv_length = openssl_cipher_iv_length($ciphering);
 	$options = 0;
@@ -18,12 +10,6 @@ include_once("./includes/header.php");
 	$key = "ketan0911";
 
 	$param_url = explode('=', openssl_decrypt($_GET['param'], $ciphering, $key, $options, $iv));
-	
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	if ($conn->connect_error) {
-	  die("Connection failed: " . $conn->connect_error);
-	}
 	
 	$sql = "SELECT *  FROM student_info where person_name = '".$param_url[1]."'";
 	$result = $conn->query($sql);
