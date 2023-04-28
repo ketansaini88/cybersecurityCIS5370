@@ -2,8 +2,8 @@
 <b>STEPS TO ACCESS</b>
 <br>
 1- Access login.php and use the following username and password to login:
-	username: student
-	password: student
+<br>username: student
+<br>password: student
 
 2- After successful login, you will be redirected to testCase_list.php. This will
 display list of the links and files for each test cases.
