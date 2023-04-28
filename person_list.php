@@ -24,10 +24,14 @@ include_once("./includes/db.php");
 <html>
 
 <head>
+	<title>Vulnerabilities & Preventive Measures</title>
+	
 	<link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
+	<h1 class="text-center">Vulnerabilities & Preventive Measures For Web Application Design</h1>
+	
 	<?php
 	if(isset($_SESSION['USERNAME']) && strlen($_SESSION['USERNAME']) > 0){
 		?><p>Logged User: <?php print $_SESSION['USERNAME'];?>&nbsp;&nbsp;<a href="logout.php">logout</a></p><?php			

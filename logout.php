@@ -1,8 +1,9 @@
 <?php
 
+session_start();
 
-unset($_SESSION['USERNAME']);	
-unset($_SESSION['ROLE']);	
+$_SESSION = [];
+
 header ("Location: login.php");
 
 ?>

@@ -13,3 +13,11 @@ td{
 	right: 0;
 	margin-right: 2%;
 }
+
+.text-center{
+	text-align: center;
+}
+
+.mg-auto{
+	margin:0 auto;
+}

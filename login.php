@@ -1,18 +1,8 @@
 <?php
-//-------------------------------------------------------------------------------------------
-	
 
-	$dbservername = "localhost";
-	$dbusername = "root";
-	$dbpassword = "";
-	$dbname = "cyberSecurity";
-	
-	// Create connection
-	$conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
-	if ($conn->connect_error) {
-	  die("Connection failed: " . $conn->connect_error);
-	}
-	
+include_once("./includes/db.php");
+
+//-------------------------------------------------------------------------------------------	
 	if(isset($_POST['username']) && strlen($_POST['username']) > 0 && isset($_POST['password']) && strlen($_POST['password'])){
 		
 		if (isset($data['field1']) && strlen($data['field1']) > 0){
@@ -31,6 +21,8 @@
 		}
 		
 		if(count($data_array) > 0){
+			session_start();
+			
 			$_SESSION['USERNAME'] = $data_array[0]['username'];
 			$_SESSION['ROLE'] = $data_array[0]['role'];
 			
@@ -43,10 +35,14 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="./styles.css?v1">
+	<title>Vulnerabilities & Preventive Measures</title>
+	
+	<link rel="stylesheet" href="./styles.css?">
 </head>
 
 <body>
+	<h1 class="text-center">Vulnerabilities & Preventive Measures For Web Application Design</h1>
+	
 	<?php
 	if(isset($_SESSION['USERNAME']) && strlen($_SESSION['USERNAME']) > 0){
 		?><p>Logged User: <?php print $_SESSION['USERNAME'];?>&nbsp;&nbsp;<a href="logout.php">logout</a></p><?php	
@@ -54,7 +50,7 @@
 	?>
 		
 	<form name="search" id="search" method="POST" action="" target="">
-		<table>
+		<table class="mg-auto">
 			<tr>
 				<td colspan="2" style="text-align:center;">Login</td>
 			</tr>

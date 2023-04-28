@@ -1,17 +1,8 @@
 <?php
-include_once("./includes/header.php");
-//-------------------------------------------------------------------------------------------
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "cyberSecurity";
 
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	if ($conn->connect_error) {
-	  die("Connection failed: " . $conn->connect_error);
-	}
-	
+include_once("./includes/header.php");
+include_once("./includes/db.php");
+//-------------------------------------------------------------------------------------------
 	$sql = "SELECT *  FROM student_info";
 	$result = $conn->query($sql);
 	
@@ -31,10 +22,14 @@ include_once("./includes/header.php");
 <html>
 
 <head>
+	<title>Vulnerabilities & Preventive Measures</title>
+	
 	<link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
+	<h1 class="text-center">Vulnerabilities & Preventive Measures For Web Application Design</h1>
+	
 	<?php
 	if(isset($_SESSION['USERNAME']) && strlen($_SESSION['USERNAME']) > 0){
 		?><p>Logged User: <?php print $_SESSION['USERNAME'];?>&nbsp;&nbsp;<a href="logout.php">logout</a></p><?php			
